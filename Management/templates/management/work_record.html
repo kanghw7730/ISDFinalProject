@@ -1,0 +1,109 @@
+<html>
+  <head>
+      <title>daily work record</title>
+      <link rel="stylesheet" href="../../static/css/css/style.css">
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="/resources/demos/style.css">
+      <!--<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+      <script>
+          $( function() {
+              $( "#datepicker" ).datepicker();
+          } );
+      </script>-->
+
+      <style>
+        #menu .items li:nth-child(4){
+            border-left: 4px solid #f5cb36;
+        }
+    </style>
+  </head>
+
+  <body>
+    <section id="menu">
+        <div class="items">
+            <li><i class="fa fa-home"></i><a href="{%url 'store_information' store_id %}">Store Information</a></li>
+            <li><i class="fa fa-users"></i><a href="{%url 'worker_management' store_id %}">Worker Management</a></li>
+            <li><i class="fa fa-calendar"></i><a href="{%url 'schedule' store_id %}">schedule</a></li>
+            <li><i class="fas fa-file-alt"></i><a href="{%url 'work_record' store_id %}">Daily Work Record</a></li>
+            <li><i class="fas fa-money-check-alt"></i><a href="{%url 'payroll_management' store_id %}">Payroll Management</a></li>
+        </div>
+    </section>
+    <section id="interface">
+        <div class="navigation">
+            <h1 class = "title">Daily Work Record</h1>
+            <div class="profile">
+                <i class="far fa-bell"></i>
+                <img src="css/image/avatar.jpg" alt="">
+            </div>
+        </div>
+        <p>Date: <input type="text" id="datepicker"></p>
+        <button>select</button>
+        <h3 class="sub-title">Work Record</h3>
+        <div class="board">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th colspan="4">5/18(wed)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hour/Work Type</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td> <a href ="update_record.html?timeslotid=22_05_3_3_1">A</a> </td>
+                    <td> <a href ="update_record.html?timeslotid=22_05_3_3_2">B</a> </td>
+                    <td> <a href ="update_record.html?timeslotid=22_05_3_3_3"><div style="color:red;">X</div></a> </td>
+                    <td> <a href ="update_record.html?timeslotid=22_05_3_3_4">D</a> </td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td> <a href ="update_record.html?timeslotid=22_05_3_3_5">A</a> </td>
+                    <td> <a href ="update_record.html?timeslotid=22_05_3_3_6">B</a> </td>
+                    <td> <a href ="update_record.html?timeslotid=22_05_3_3_7"><div style="color:red;">X</div></a> </td>
+                    <td> <a href ="update_record.html?timeslotid=22_05_3_3_8">D</a> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+        <div class="memo">
+        <P><textarea name="memo" cols="100" rows="3">memo</textarea></P>
+        </div>
+<p align="center"><button>cancel</button>&nbsp<button>save</button></p>
+<h3 class="sub-title">Summary</h3>
+<div class="board">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Worker</th>
+                <th>Daily Hours</th>
+                <th>Weekly Hours</th>
+                <th>Weekly Expected Hours</th>
+                <th>Weekly Payroll</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for worker in worker_list %}
+            <tr>
+                <td><a href ="personal_record.html?workerid=A&&month=202204">{{worker.worker_name}}</a></td>
+                <td>{{worker.total_work_hour}}</td> <!--한달동안 일한 총시간-->
+                <td>{{worker.total_work_pay}}</td><!--총시간 * 시급-->
+                <td>{{worker.bonus_pay}}</td><!--총시간이 > 60이면 시급*7.5*4-->
+                <td>{{worker.total_pay}}</td><!--payment+bonuspayment-->
+            </tr>
+            {%endfor%}
+            <tr><td colspan="5" align="right">{{total_sum_sum}}</td></tr>
+        </tbody>
+    </table>
+</div>
+    </section>
+  </body>
+</html>

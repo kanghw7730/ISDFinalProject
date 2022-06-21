@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>worker management</title>
+    <link rel="stylesheet" href="../../static/css/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <style>
+        #menu .items li:nth-child(2){
+            border-left: 4px solid #f5cb36;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="menu">
+        <div class="items">
+            <li><i class="fa fa-home"></i><a href="{%url 'store_information' store_id %}">Store Information</a></li>
+            <li><i class="fa fa-users"></i><a href="{%url 'worker_management' store_id %}">Worker Management</a></li>
+            <li><i class="fa fa-calendar"></i><a href="{%url 'schedule' store_id %}">schedule</a></li>
+            <li><i class="fas fa-file-alt"></i><a href="{%url 'work_record' store_id %}">Daily Work Record</a></li>
+            <li><i class="fas fa-money-check-alt"></i><a href="{%url 'payroll_management' store_id %}">Payroll Management</a></li>
+        </div>
+    </section>
+
+    <section id="interface">
+        <div class="navigation">
+            <h1 class = "title">Worker Management</h1>
+            <div class="profile">
+                <i class="far fa-bell"></i>
+                <img src="css/image/avatar.jpg" alt="">
+            </div>
+        </div>
+        <div class = "worker_management">
+        <h3 class="sub-title">Worker Information</h3>
+        <div class="board">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Work Type</th>
+                <th>Working Hour</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>A</td>
+                <td>kitchen1</td>
+                <td>mon 11-15<br>tue 11-15<br>wed 11-15<br>thu 11-15<br>fri 11-15</td>
+                <td class="update"><a href="#">Update</a></td>
+                <td><button class="delete-button">Delete</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>B</td>
+                <td>kitchen2</td>
+                <td>mon 11-15<br>tue 11-15<br>wed 11-15<br>thu 11-15<br>fri 11-15</td>
+                <td class="update"><a href="#">Update</a></td>
+                <td><button class="delete-button">Delete</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>C</td>
+                <td>hall1</td>
+                <td>mon 11-15<br>wed 11-15</td>
+                <td class="update"><a href="#">Update</a></td>
+                <td><button class="delete-button">Delete</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>D</td>
+                <td>hall2</td>
+                <td>mon 11-15<br>wed 11-15</td>
+                <td class="update"><a href="#">Update</a></td>
+                <td><button class="delete-button">Delete</button></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>E</td>
+                <td>hall1</td>
+                <td>tue 11-15<br>thu 11-15</td>
+                <td class="update"><a href="#">Update</a></td>
+                <td><button class="delete-button">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h3 class="sub-title">Applicant Information</h3>
+    <div class="board">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Work Type</th>
+                <th>Working Hour</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th>Hire</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>F</td>
+                <td>hall2</td>
+                <td>tue 11-15<br>thu 11-15</td>
+                <td class="update"><a href="#">Update</a></td>
+                <td><button class="delete-button">Delete</button></td>
+                <td><button>Hire</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>G</td>
+                <td>kitchen2</td>
+                <td>mon 11-15<br>tue 11-15<br>wed 11-15<br>thu 11-15<br>fri 11-15</td>
+                <td class="update"><a href="#">Update</a></td>
+                <td><button class="delete-button">Delete</button></td>
+                <td><button>Hire</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>H</td>
+                <td>hall1</td>
+                <td>mon 11-15<br>wed 11-15</td>
+                <td class="update"><a href="#">Update</a></td>
+                <td><button class="delete-button">Delete</button></td>
+                <td><button>Hire</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>I</td>
+                <td>hall2</td>
+                <td>mon 11-15<br>wed 11-15</td>
+                <td class="update"><a href="#">Update</a></td>
+                <td><button class="delete-button">Delete</button></td>
+                <td><button>Hire</button></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>J</td>
+                <td>hall1</td>
+                <td>tue 11-15<br>thu 11-15</td>
+                <td class="update"><a href="#">Update</a></td>
+                <td><button class="delete-button">Delete</button></td>
+                <td><button>Hire</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <button class="add-button">Add</button><br>
+
+</div></section>
+</body>
+</html>

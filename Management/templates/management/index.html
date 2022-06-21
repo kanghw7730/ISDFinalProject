@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>store</title>
+    <link rel="stylesheet" href="../../static/css/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <style>
+        #menu .items li:nth-child(2){
+            border-left: 4px solid #f5cb36;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="menu">
+        <div class="items">
+            <li><i class="fa fa-home"></i><a href="{%url 'store_information' store_id %}">Store Information</a></li>
+            <li><i class="fa fa-users"></i><a href="{%url 'worker_management' store_id %}">Worker Management</a></li>
+            <li><i class="fa fa-calendar"></i><a href="{%url 'schedule' store_id %}">schedule</a></li>
+            <li><i class="fas fa-file-alt"></i><a href="{%url 'work_record' store_id %}">Daily Work Record</a></li>
+            <li><i class="fas fa-money-check-alt"></i><a href="{%url 'payroll_management' store_id %}">Payroll Management</a></li>
+        </div>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>payroll management</title>
+    <link rel="stylesheet" href="../../static/css/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <style>
+        #menu .items li:nth-child(5){
+            border-left: 4px solid #f5cb36;
+        }
+    </style>
+</head>
+<body>
+    <section id="menu">
+        <div class="items">
+            <li><i class="fa fa-home"></i><a href="{%url 'store_information' store_id %}">Store Information</a></li>
+            <li><i class="fa fa-users"></i><a href="{%url 'worker_management' store_id %}">Worker Management</a></li>
+            <li><i class="fa fa-calendar"></i><a href="{%url 'schedule' store_id %}">schedule</a></li>
+            <li><i class="fas fa-file-alt"></i><a href="{%url 'work_record' store_id %}">Daily Work Record</a></li>
+            <li><i class="fas fa-money-check-alt"></i><a href="{%url 'payroll_management' store_id %}">Payroll Management</a></li>
+        </div>
+    </section>
+    <section id="interface">
+        <div class="navigation">
+            <h1 class = "title">Payroll Management</h1>
+            <div class="profile">
+                <i class="far fa-bell"></i>
+                <img src="css/image/avatar.jpg" alt="">
+            </div>
+        </div>
+<label for="year">Year</label>
+<select name="year" id="year" />
+    <option value="21">2021</option>
+    <option value="22">2022</option>
+    <option value="23">2023</option>
+</select>
+<label for="month">Month</label>
+<select name="month" id="month" />
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+<div class="board">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>worker</th>
+                <th>monthly working hours</th>
+                <th>payroll</th>
+                <th>bonus pay</th>
+                <th>sum</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for worker in worker_list %}
+            <tr>
+                <td><a href ="personal_record.html?workerid=A&&month=202204">{{worker.worker_name}}</a></td>
+                <td>{{worker.total_work_hour}}</td> <!--한달동안 일한 총시간-->
+                <td>{{worker.total_work_pay}}</td><!--총시간 * 시급-->
+                <td>{{worker.bonus_pay}}</td><!--총시간이 > 60이면 시급*7.5*4-->
+                <td>{{worker.total_pay}}</td><!--payment+bonuspayment-->
+            </tr>
+            {%endfor%}
+            <tr><td colspan="5" align="right">{{total_sum_sum}}</td></tr>
+        </tbody>
+    </table>
+</div></section>
+</body>
+</html>

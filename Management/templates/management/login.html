@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <!----css custom file link-->
+    <link rel="stylesheet" href="../../static/css/css/style.css">
+    <!---Fontawesome CDN link----->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+</head>
+<body>
+<div class="outer">
+    <div class="inner">
+    <div class="container">
+      <div class="img">
+        <img src="../../static/css/css/image/bgimage.webp">
+      </div>
+      <div class="login-content">
+        <form action="{%url 'login' %}" method="POST">
+          {% csrf_token %}
+          <img src="../../static/css/css/image/avatar.jpg">
+          <h2 class="title">Welcome</h2>
+          <div class="input-div one">
+            <div class="i">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="div">
+              <h5>Username</h5>
+              <input type="text" class="input" name="login_id">
+            </div>
+          </div>
+          <div class="input-div pass">
+            <div class="i">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="div">
+              <h5>Password</h5>
+              <input type="password" class="input" name="login_pw">
+            </div>
+          </div>
+          <input type="submit" class="btn" value="Login">
+        </form>
+      </div></div></div>
+    </div>
+<script src="../../static/css/js.js"></script>
+</body>
+</html>

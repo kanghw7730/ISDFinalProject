@@ -1,0 +1,166 @@
+<html>
+  <head>
+      <title>schedule</title>
+      <link rel="stylesheet" href="../../static/css/css/style.css">
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="/resources/demos/style.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+      <script>
+          $( function() {
+              $( "#datepicker" ).datepicker();
+          } );
+      </script>
+      <style>
+        #menu .items li:nth-child(3){
+            border-left: 4px solid #f5cb36;
+        }
+    </style>
+  </head>
+  <!스케줄에서 현재 날짜를 기준으로 뒤의 일정만 조정 가능>
+  <body>
+    <section id="menu">
+        <div class="items">
+            <li><i class="fa fa-home"></i><a href="{%url 'store_information' store_id %}">Store Information</a></li>
+            <li><i class="fa fa-users"></i><a href="{%url 'worker_management' store_id %}">Worker Management</a></li>
+            <li><i class="fa fa-calendar"></i><a href="{%url 'schedule' store_id %}">schedule</a></li>
+            <li><i class="fas fa-file-alt"></i><a href="{%url 'work_record' store_id %}">Daily Work Record</a></li>
+            <li><i class="fas fa-money-check-alt"></i><a href="{%url 'payroll_management' store_id %}">Payroll Management</a></li>
+        </div>
+    </section>
+
+    <section id="interface">
+        <div class="navigation">
+            <h1 class = "title">Schedule</h1>
+            <div class="profile">
+                <i class="far fa-bell"></i>
+                <img src="css/image/avatar.jpg" alt="">
+            </div>
+        </div>
+
+        <p>Date: <input type="text" id="datepicker"></p>
+        <button>select</button>
+
+        <div class="board">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Time/Day</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+            </tr>
+        </tbody>
+    <!timeslotid=년도_월_몇번째주_요일(월요일=1)_시간(11시=1)_workertype>
+            <tr>
+                <td>11</td>
+                <!mon><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td> <a href ="update_schedule.html?timeslotid=22_05_3_1_1_1">A</a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_1_1_2">B</a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_1_1_3"><div style="color:red;">X</div></a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_1_1_4">D</a> </td></tr>
+                </table></td>
+                <!tue><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td> <a href ="update_schedule.html?timeslotid=22_05_3_2_1_1">A</a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_2_1_2">B</a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_2_1_3">E</a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_2_1_4">D</a> </td></tr>
+                </table></td>
+                <!wed><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</tr>
+                </table></td>
+                <!thu><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td>A</td>
+                    <td>B</td>
+                    <td>E</td>
+                    <td>F</tr>
+                </table></td>
+                <!fri><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td>A</td>
+                    <td>B</td>
+                    <td>G</td>
+                    <td>H</td></tr>
+                </table></td>
+                <!sat><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td>M</td>
+                    <td>N</td>
+                    <td>G</td>
+                    <td>H</td></tr>
+                </table></td>
+                <!sun><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td>M</td>
+                    <td>N</td>
+                    <td>G</td>
+                    <td>H</td></tr>
+                </table></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <!mon><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td> <a href ="update_schedule.html?timeslotid=22_05_3_1_2_1">A</a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_1_2_2">B</a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_1_2_3"><div style="color:red;">X</div></a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_1_2_4">D</a> </td></tr>
+                </table></td>
+                <!tue><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td> <a href ="update_schedule.html?timeslotid=22_05_3_2_2_1">A</a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_2_2_2">B</a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_2_2_3">E</a> </td>
+                    <td> <a href ="update_schedule.html?timeslotid=22_05_3_2_2_4">D</a> </td></tr>
+                </table></td>
+                <!wed><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</tr>
+                </table></td>
+                <!thu><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td>A</td>
+                    <td>B</td>
+                    <td>E</td>
+                    <td>F</tr>
+                </table></td>
+                <!fri><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td>A</td>
+                    <td>B</td>
+                    <td>G</td>
+                    <td>H</td></tr>
+                </table></td>
+                <!sat><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td>M</td>
+                    <td>N</td>
+                    <td>G</td>
+                    <td>H</td></tr>
+                </table></td>
+                <!sun><td><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><td>M</td>
+                    <td>N</td>
+                    <td>G</td>
+                    <td>H</td></tr>
+                </table></td>
+            </tr>
+        </table>
+            <p align="center"><button>cancel</button>&nbsp<button>save</button></p>
+        </div>
+    </section></body>
+</html>
